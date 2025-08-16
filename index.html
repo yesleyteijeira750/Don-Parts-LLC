@@ -12,98 +12,277 @@
       font-family: 'Poppins', sans-serif;       
     }
 
-    /* Overlay */
-    #maintenance {
-      display: none;
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #f3f4f6, #d1d5db);
-      color: #111827;
-      z-index: 9999;
-      padding: 24px;
-      overflow-y: auto; /* permite scroll vertical en móvil */
-      font-family: 'Poppins', sans-serif;
+    header h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      color: #333;
     }
 
-    .maintenance-content {
-      max-width: 900px;
-      margin: 0 auto;
-      min-height: 100vh;
+    .hero {
+      text-align: center;
+      padding: 120px 20px 80px;
+      background: linear-gradient(135deg, #444, #777);
+      color: #fff;
+      border-bottom-left-radius: 60px;
+      border-bottom-right-radius: 60px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-family: 'Pacifico', cursive;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #f2f2f2;
+    }
+
+    .hero button {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 16px 36px;
+      font-size: 1rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+    .hero button:hover {
+      background: #444;
+      transform: translateY(-3px);
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+    .card {
+      background: linear-gradient(135deg, #f5f5f5, #dcdcdc);
+      padding: 50px 40px;
+      border-radius: 30px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      margin-bottom: 60px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      color: #000;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #000;
+      letter-spacing: 1px;
+    }
+
+    ul { list-style: none; padding: 0; }
+    .why-us li, .services li {
+      margin: 15px 0;
+      padding-left: 30px;
+      position: relative;
+      font-size: 1.1rem;
+      color: #000;
+    }
+    .why-us li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #333;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .learn-more-btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+      display: block;
+    }
+    .learn-more-btn:hover {
+      background: #444;
+    }
+
+    .service-detail {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background: #eee;
+      border-radius: 15px;
+      font-size: 0.95rem;
+    }
+
+    .contact-info p a {
+      color: #000;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #777, #444);
+      color: #fff;
+      border-radius: 30px 30px 0 0;
+    }
+
+    /* Responsive Maintenance Overlay */
+    #maintenanceOverlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+      z-index: 9999;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 20px;
+      padding: 20px;
       box-sizing: border-box;
     }
 
-    /* Title */
-    #maintenance h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: clamp(2rem, 6vw, 4rem);
-      color: #111;
-      margin: 0;
+    #maintenanceOverlay .overlay-content {
+      max-width: 600px;
+      width: 100%;
     }
 
-    /* Subtitle */
-    #maintenance h2 {
-      font-size: clamp(1rem, 3vw, 1.8rem);
-      color: #222;
-      margin: 0 0 10px;
-      padding: 0 10px; /* respiro en móviles */
-    }
-
-    /* Imagen responsive */
-    #maintenance img {
-      width: clamp(200px, 50vw, 380px);
-      height: auto;
-    }
-
-    #maintenance button {
-      background: #111827;
-      color: #fff;
-      border: none;
-      padding: 16px 32px;
-      font-size: clamp(0.9rem, 2vw, 1.1rem);
-      font-weight: 600;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    #maintenanceOverlay h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
       margin-bottom: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      font-weight: bold;
     }
-    #maintenance button:hover {
-      background: #374151;
-      transform: translateY(-3px);
+
+    #maintenanceOverlay img {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+
+    #maintenanceOverlay p {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #maintenanceOverlay .contact-btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #0d1b2a;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+
+    #maintenanceOverlay .contact-btn:hover {
+      background: #1b263b;
+    }
+
+    @media(max-width:768px){
+      .hero h1 { font-size: 2.5rem; }
+      .section h2 { font-size: 2rem; }
+      .hero p { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Maintenance overlay -->
-  <div id="maintenance">
-    <div class="maintenance-content">
-      <h1>We will be back soon.</h1>
-      <img src="maintenance.png" alt="Maintenance">
-      <h2>Our team is improving the site for a better experience.</h2>
-      <button onclick="window.location.href='sms:+19413102786?&body=Hi! I have a quick question about the site while it is under maintenance.'">
-        Contact Us
-      </button>
+  <!-- Maintenance Overlay -->
+  <div id="maintenanceOverlay">
+    <div class="overlay-content">
+      <h1>We will be back soon</h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/6175/6175149.png" alt="Maintenance">
+      <p>Our website is currently under maintenance. We’ll be back with a better experience shortly.</p>
+      <a href="mailto:info@donprats.com" class="contact-btn">Contact Us</a>
     </div>
   </div>
 
-  <script>
-    // Maintenance mode toggle
-    const maintenanceMode = true; // Cambia a false para ocultar overlay
+  <header>
+    <h2>Don Prats</h2>
+  </header>
 
-    if (maintenanceMode) {
-      document.getElementById('maintenance').style.display = 'block';
-    } else {
-      document.getElementById('maintenance').style.display = 'none';
+  <section class="hero">
+    <h1>Painting & Epoxy Experts</h1>
+    <p>Transform your home and floors with premium painting, epoxy, and resin solutions. Beauty and durability in every detail.</p>
+    <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfEbGjIUyzroOfRxmPKweJ6AZSVeLlxnT9zqHzWFAXUda8U5A/viewform?usp=header','_blank')">Get a Free Quote</button>
+  </section>
+
+  <section class="section" id="services">
+    <div class="card why-us">
+      <h2>Why Choose Us?</h2>
+      <ul>
+        <li>Reliable and always on schedule</li>
+        <li>Top-quality materials & finish</li>
+        <li>Professional, skilled, and friendly team</li>
+        <li>Locally trusted and fully insured</li>
+      </ul>
+    </div>
+
+    <div class="card services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>
+          <strong>House Painting</strong>
+          <button class="learn-more-btn" onclick="toggleDetail('painting-detail')">Learn More</button>
+          <div id="painting-detail" class="service-detail">
+            We provide interior and exterior painting with durable, high-quality finishes that enhance your home’s look and protect surfaces from wear, moisture, and weather.
+          </div>
+        </li>
+        <li>
+          <strong>Epoxy Flooring</strong>
+          <button class="learn-more-btn" onclick="toggleDetail('epoxy-detail')">Learn More</button>
+          <div id="epoxy-detail" class="service-detail">
+            Our epoxy flooring offers long-lasting, glossy, and easy-to-clean coatings perfect for garages, basements, and commercial spaces. They resist stains, cracks, and heavy use.
+          </div>
+        </li>
+        <li>
+          <strong>Custom Resin Coatings</strong>
+          <button class="learn-more-btn" onclick="toggleDetail('resin-detail')">Learn More</button>
+          <div id="resin-detail" class="service-detail">
+            We create unique and decorative resin designs that bring personality, strength, and style to any surface. Perfect for countertops, tables, and artistic finishes.
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="card contact contact-info">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> <a href="tel:+194112732063">941-127-32063</a></p>
+    <p><strong>Email:</strong> <a href="mailto:yonierdp85@gmail.com?subject=Services%20of%20DonPad&body=Hello,%20my%20name%20is%20[Your%20Name]%20and%20I%20am%20interested%20in%20your%20services.">Send Email</a></p>
+  </div>
+
+  <footer>&copy; 2025 Don Prats. All Rights Reserved.</footer>
+
+  <script>
+    function toggleDetail(id) {
+      const detail = document.getElementById(id);
+      detail.style.display = (detail.style.display === "block") ? "none" : "block";
     }
+
+    // Set maintenance overlay visibility
+    const maintenanceMode = true; // true = show overlay, false = hide
+    document.getElementById('maintenanceOverlay').style.display = maintenanceMode ? 'flex' : 'none';
+    document.body.style.overflow = maintenanceMode ? 'hidden' : 'auto';
   </script>
 
 </body>
