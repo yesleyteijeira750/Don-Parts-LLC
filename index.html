@@ -9,30 +9,7 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #e0e0e0;
-      color: #000;
-      line-height: 1.6;
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      font-weight: 700;
-      color: #000;
-    }
-
-    a { text-decoration: none; color: inherit; }
-
-    header {
-      background: #fff;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      font-family: 'Poppins', sans-serif;       
     }
 
     header h2 {
@@ -164,33 +141,91 @@
       border-radius: 30px 30px 0 0;
     }
 
-    /* Maintenance overlay */
+    /* Maintenance overlay - improved */
     #maintenance {
-      display: none;
+      display: none;              /* toggled via JS */
       position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:#E5E7EB;
-      color:#0C0A09;
+      inset: 0;                   /* top/right/bottom/left: 0 */
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f3f4f6, #d1d5db);
+      color: #111827;
+      z-index: 9999;
+      padding: 24px;
+      overflow: auto;            /* prevents content from being cut off */
       font-family: 'Poppins', sans-serif;
-      font-size:2rem;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      text-align:center;
-      padding:20px;
+    }
+
+    .maintenance-content {
+      max-width: 720px;
+      margin: 0 auto;
+      min-height: 100dvh;        /* full dynamic viewport height */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      transform: translateY(-2vh); /* lift a little so the button is fully visible */
+    }
+
+    #maintenance h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      color: #111;
+    }
+    #maintenance h2 {
+      font-size: 1.6rem;
+      color: #222;
+    }
+    #maintenance p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      color: #333;
+    }
+    #maintenance img {
+      max-width: 220px;
+      height: auto;
+    }
+    #maintenance button {
+      background: #111827;
+      color: #fff;
+      border: none;
+      padding: 16px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+    }
+    #maintenance button:hover {
+      background: #374151;
+      transform: translateY(-3px);
     }
 
     @media(max-width:768px){
       .hero h1 { font-size: 2.5rem; }
       .section h2 { font-size: 2rem; }
       .hero p { font-size: 1.1rem; }
+      .maintenance-content { transform: translateY(-1vh); } /* slightly less lift on small screens */
     }
   </style>
 </head>
 <body>
 
-  <div id="maintenance">We are currently performing maintenance.Please check back soon! </div>
+  <!-- Maintenance overlay (replaces the old one) -->
+  <div id="maintenance">
+    <div class="maintenance-content">
+      <img src="maintenance.png" alt="Maintenance">
+      <h1>We'll Be Back Soon!</h1>
+      <h2>Making things better for you</h2>
+      <p>We're doing a quick tune‑up so everything runs smoother. Thanks for your patience — see you shortly!</p>
+      <h3>Questions? Text us</h3>
+      <button onclick="window.location.href='sms:+19413102786'">Contact Us</button>
+      <p style="font-size:.95rem; opacity:.8; margin-top:6px;">Example: "Hi! I have a quick question about the site while it's under maintenance."</p>
+    </div>
+  </div>
 
   <header>
     <h2>Don Prats</h2>
@@ -255,14 +290,15 @@
       detail.style.display = (detail.style.display === "block") ? "none" : "block";
     }
 
-    // Maintenance mode toggle
-    const maintenanceMode = true; // Cambia a true para activar mantenimiento
+    // Maintenance mode toggle (TRUE shows overlay, FALSE hides it)
+    const maintenanceMode = true; // set to true to activate maintenance
+
     if (maintenanceMode) {
-      document.body.style.overflow = "hidden";
-      document.getElementById('maintenance').style.display = "flex";
+      document.body.style.overflow = 'hidden';
+      document.getElementById('maintenance').style.display = 'block';
     } else {
-      document.getElementById('maintenance').style.display = "none";
-      document.body.style.overflow = "auto";
+      document.getElementById('maintenance').style.display = 'none';
+      document.body.style.overflow = 'auto';
     }
   </script>
 
