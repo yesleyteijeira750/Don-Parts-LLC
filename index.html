@@ -152,21 +152,21 @@
       color: #111827;
       z-index: 9999;
       padding: 24px;
-      overflow: auto;            /* prevents content from being cut off */
+      overflow: auto;            
       font-family: 'Poppins', sans-serif;
     }
 
     .maintenance-content {
       max-width: 720px;
       margin: 0 auto;
-      min-height: 100dvh;        /* full dynamic viewport height */
+      min-height: 100dvh;        
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
       text-align: center;
-      transform: translateY(-2vh); /* lift a little so the button is fully visible */
+      transform: translateY(-2vh);
     }
 
     #maintenance h1 {
@@ -179,13 +179,16 @@
       color: #222;
     }
     #maintenance p {
-      font-size: 1.1rem;
-      max-width: 600px;
+      font-size: 1.15rem;
+      max-width: 650px;
+      margin-bottom: 15px;
+      line-height: 1.5;
       color: #333;
     }
     #maintenance img {
-      max-width: 220px;
+      max-width: 320px; /* más grande */
       height: auto;
+      margin-bottom: 20px;
     }
     #maintenance button {
       background: #111827;
@@ -208,22 +211,23 @@
       .hero h1 { font-size: 2.5rem; }
       .section h2 { font-size: 2rem; }
       .hero p { font-size: 1.1rem; }
-      .maintenance-content { transform: translateY(-1vh); } /* slightly less lift on small screens */
+      .maintenance-content { transform: translateY(-1vh); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Maintenance overlay (replaces the old one) -->
+  <!-- Maintenance overlay -->
   <div id="maintenance">
     <div class="maintenance-content">
       <img src="maintenance.png" alt="Maintenance">
       <h1>We'll Be Back Soon!</h1>
       <h2>Making things better for you</h2>
-      <p>We're doing a quick tune‑up so everything runs smoother. Thanks for your patience — see you shortly!</p>
+      <p>We're doing a quick tune-up so everything runs smoother. Thanks for your patience — see you shortly!</p>
       <h3>Questions? Text us</h3>
-      <button onclick="window.location.href='sms:+19413102786'">Contact Us</button>
-      <p style="font-size:.95rem; opacity:.8; margin-top:6px;">Example: "Hi! I have a quick question about the site while it's under maintenance."</p>
+      <button onclick="window.location.href='sms:+19413102786?&body=Hi! I have a quick question about the site while it is under maintenance.'">
+        Contact Us
+      </button>
     </div>
   </div>
 
