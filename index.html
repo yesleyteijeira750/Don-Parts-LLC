@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Don Prats - Painting & Epoxy Experts</title>
+  <meta name="description" content="Don Prats LLC provides premium painting, epoxy, and resin services in Port Charlotte, Florida. Transform your home or business with expert finishes and lasting results.">
   <link rel="icon" type="image/png" href="favicon.png">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -127,6 +128,22 @@
       font-size: 0.95rem;
     }
 
+    /* Ajuste Contact Us al mismo tamaño que otros */
+    .contact-info {
+      padding: 50px 40px;
+      border-radius: 30px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      margin-bottom: 60px;
+      background: linear-gradient(135deg, #f5f5f5, #dcdcdc);
+    }
+    .contact-info h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #000;
+      letter-spacing: 1px;
+    }
+
     .contact-info p a {
       color: #000;
       font-weight: 600;
@@ -176,16 +193,11 @@
       margin: 0;
     }
 
-    #maintenance h2 {
-      font-size: clamp(1rem, 3vw, 1.8rem);
+    #maintenance p {
+      font-size: clamp(1rem, 2vw, 1.5rem);
       color: #222;
       margin: 0 0 10px;
       padding: 0 10px;
-    }
-
-    #maintenance img {
-      width: clamp(200px, 50vw, 380px);
-      height: auto;
     }
 
     #maintenance button {
@@ -208,11 +220,11 @@
 
     @media(max-width:768px){
       .hero h1 { font-size: 2.5rem; }
-      .section h2 { font-size: 2rem; }
+      .section h2, .contact-info h2 { font-size: 2rem; }
       .hero p { font-size: 1.1rem; }
       .maintenance-content { gap: 15px; }
       #maintenance h1 { font-size: 2.2rem; }
-      #maintenance h2 { font-size: 1.2rem; }
+      #maintenance p { font-size: 1.1rem; }
       #maintenance button { padding: 12px 28px; font-size: 0.95rem; }
     }
   </style>
@@ -223,12 +235,8 @@
   <div id="maintenance">
     <div class="maintenance-content">
       <img src="maintenance.png" alt="Maintenance">
-      <h1>We'll Be Back Soon!</h1>
-      <h2>Making things better for you</h2>
-      <p>We're doing a quick tune‑up so everything runs smoother. Thanks for your patience — see you shortly!</p>
-      <h3>Questions? Text us</h3>
+      <p>Estamos haciendo mantenimiento ahora, por favor regrese más tarde.</p>
       <button onclick="window.location.href='sms:+19413102786'">Contact Us</button>
-      <p style="font-size:.95rem; opacity:.8; margin-top:6px;">Example: "Hi! I have a quick question about the site while it's under maintenance."</p>
     </div>
   </div>
 
