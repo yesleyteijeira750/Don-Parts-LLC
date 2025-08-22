@@ -295,7 +295,11 @@
     <p><strong>Email:</strong> <a href="mailto:yonierdp85@gmail.com?subject=Services%20of%20DonPad&body=Hello,%20my%20name%20is%20[Your%20Name]%20and%20I%20am%20interested%20in%20your%20services.">Send Email</a></p>
   </div>
 
-  <footer>&copy; 2025 Don Prats. All Rights Reserved.</footer>
+  <footer>
+    &copy; 2025 Don Prats. All Rights Reserved.
+    <br>
+    Powered by <a href="#" onclick="handleContactClick()">Teijeira Studios</a>
+  </footer>
 
   <script>
     function toggleDetail(id) {
@@ -306,9 +310,15 @@
     const maintenanceMode = false; // true = mostrar overlay, false = ocultar
     document.getElementById('maintenance').style.display = maintenanceMode ? 'block' : 'none';
     document.body.style.overflow = maintenanceMode ? 'hidden' : 'auto';
+
+    function handleContactClick() {
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href = "sms:+19413102786?body=I%20need%20services%20from%20Teijeira%20Studios";
+      } else {
+        window.location.href = "mailto:teijeirastudios@gmail.com?subject=I%20need%20services%20from%20Teijeira%20Studios&body=I%20need%20services%20from%20Teijeira%20Studios";
+      }
+    }
   </script>
 
 </body>
 </html>
-
-
